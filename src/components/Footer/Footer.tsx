@@ -1,8 +1,8 @@
-import styles from './Header.module.scss';
+import styles from './Footer.module.scss';
 
-export const Header = () => {
+export const Footer = () => {
 	return (
-		<header>
+		<footer>
 			<nav>
 				<ul className={styles.items}>
 					<li>Home</li>
@@ -10,6 +10,6 @@ export const Header = () => {
 					<li>Contacts</li>
 				</ul>
 			</nav>
-		</header>
+		</footer>
 	);
 };
