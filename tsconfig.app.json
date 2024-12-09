@@ -28,5 +28,5 @@
 			"@components/*": ["src/components/*"]
 		}
 	},
-	"include": ["src", "src/vitest.setup.ts"]
+	"include": ["src", "src/vitest.setup.ts", "src/api/settings.ts"]
 }
