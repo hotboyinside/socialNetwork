@@ -16,7 +16,8 @@ const objectToQueryParameters = (obj: Params): string => {
 export const configuredApi = async <T>(
 	url: string,
 	method?: Method,
-	params?: Params,
+	queryParams?: Params,
+	bodyParams?: Params,
 	timeout = 20000
 ): Promise<T> => {
 	const options: RequestInit = {
@@ -26,12 +27,11 @@ export const configuredApi = async <T>(
 		},
 		signal: AbortSignal.timeout(timeout),
 	};
-	if (params) {
-		if (method === 'GET') {
-			url += '?' + objectToQueryParameters(params);
-		} else {
-			options.body = JSON.stringify(params);
-		}
+	if (queryParams) {
+		url += '?' + objectToQueryParameters(queryParams);
+	}
+	if (bodyParams) {
+		options.body = JSON.stringify(bodyParams);
 	}
 
 	const response = await fetch(BASE_URL + url, options);

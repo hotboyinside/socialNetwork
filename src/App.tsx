@@ -4,7 +4,7 @@ import viteLogo from '/vite.svg';
 import { Header } from '@components/Header/Header';
 import { Footer } from '@components/Footer/Footer';
 import './App.css';
-import { QueryInstance } from './api/QueryInstance';
+import { QueryInstanceGet } from './api/QueryInstance';
 import { Character } from './types';
 
 interface CharactersDataInterface {
@@ -13,7 +13,7 @@ interface CharactersDataInterface {
 
 function App() {
 	const [count, setCount] = useState(0);
-	const { data, isLoading, error } = QueryInstance<CharactersDataInterface>({
+	const { data, isLoading, error } = QueryInstanceGet<CharactersDataInterface>({
 		url: '/character',
 	});
 	console.log(data?.results, isLoading, error);
